@@ -38,4 +38,5 @@
 (t/deftest test-slurp-spit
   (let [val (vec (range 1280))]
     (io/spit "test.tmp" val)
-    (t/assert= val (read-string (io/slurp "test.tmp")))))
+    (t/assert= val (read-string (io/slurp "test.tmp")))
+    (stdlib/sh "rm test.tmp")))
