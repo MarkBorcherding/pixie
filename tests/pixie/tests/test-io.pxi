@@ -1,7 +1,6 @@
 (ns pixie.tests.test-io
   (require pixie.test :as t)
   (require pixie.streams :as st :refer :all)
-  (require pixie.io :as io))
 
 (t/deftest test-file-reduction
   (let [f (io/open-read "tests/pixie/tests/test-io.txt")]
@@ -39,4 +38,4 @@
   (let [val (vec (range 1280))]
     (io/spit "test.tmp" val)
     (t/assert= val (read-string (io/slurp "test.tmp")))
-    (stdlib/sh "rm test.tmp")))
+    (sh "rm test.tmp")))
